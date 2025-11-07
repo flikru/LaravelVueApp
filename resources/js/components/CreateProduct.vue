@@ -1,28 +1,40 @@
 <template>
-  <div>
-    <h1>Create Product</h1>
-    <form @submit.prevent="createProduct">
-        <div class="form-group">
-            <label>Product Name:</label>
-            <input class="form-control" v-model="product.name" type="text" required />
-        </div>
-        <div class="form-group">
-            <label>Description:</label>
-            <textarea class="form-control" v-model="product.description"></textarea>
-        </div>
+    <div>
+        <h1>Создать задачу</h1>
+        <form class="w-50" @submit.prevent="createProduct">
+            <label class="form-label">Название задачи:</label>
+            <input v-model="product.name" type="text"  class="form-control" required />
 
-            <div class="form-group">
-            <label>Price (₽):</label>
+            <label class="form-label">Текст задачи:</label>
+            <textarea v-model="product.description" class="form-control"></textarea>
+
+            <label class="form-label">Дней на выполнение:</label>
             <input class="form-control" v-model="product.price" type="number" step="0.01" required />
-            </div>
 
-            <div class="form-group">
-                <button type="submit" class="btn btn-primary">Create</button>
-                <router-link to="/" class="btn btn-danger">Cancel</router-link>
-            </div>
+            <label class="form-label">Статус:</label>
+            <select class="form-select"  name="" id="" v-model="product.status">
+                <option value="Новая" selected>Новая</option>
+                <option value="В работе">В работе</option>
+                <option value="Выполнена">Выполнена</option>
+            </select>
 
-    </form>
-  </div>
+            <label class="form-label">Приоритет задачи:</label>
+            <select class="form-select"  name="" id="" v-model="product.priority">
+                <option value="0" selected>Не срочная</option>
+                <option value="1">Важная</option>
+                <option value="2" selected>Срочная</option>
+            </select>
+
+            <button type="submit" class="btn btn-success">Создать</button>
+
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <router-link to="/" class="btn btn-danger">Назад</router-link>
+        </form>
+    </div>
 </template>
 
 <script>
@@ -35,6 +47,8 @@ export default {
         name: '',
         description: '',
         price: 0,
+        status: "Новая",
+        priority: 0,
       },
     };
   },

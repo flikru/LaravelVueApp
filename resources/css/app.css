@@ -9,7 +9,11 @@
     --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
         'Segoe UI Symbol', 'Noto Color Emoji';
 }
-body>div{
-    max-width: 1024px;
-    margin: 0 auto;
+.yellow>td{
+    background-color: #ffb100 !important;
+}
+.red>td{
+    background-color: #ff2929 !important;
+    color: #ffffff !important;
+    font-weight: bold;
 }

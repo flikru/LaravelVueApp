@@ -1,30 +1,31 @@
 <template>
-    <div class="container">
+    <div class="">
         <br>
         <h1 class="text-center">Лист задач для техников Другого измерения</h1>
         <br>
         <table class="table border-1">
             <thead class="">
             <tr class="table-dark">
+                <td><b>Приоритет</b></td>
                 <td><b>Задача</b></td>
                 <td><b>Описание</b></td>
                 <td><b>Дата постановки</b></td>
-                <td><b>Срок выполнения, дней</b></td>
+                <td><b>Срок выполнения, часов</b></td>
                 <td><b>Исполнитель</b></td>
                 <td><b>Статус</b></td>
-                <td></td>
-                <td></td>
+                <td v-if="this.getAdmin() == 1"></td>
             </tr>
             </thead>
             <tbody>
-            <tr v-for="product in products.data" :key="product.id">
+            <tr v-for="product in products.data" :key="product.id" :class="product.priority_class">
+                <td>{{ product.priority_text }}</td>
                 <td><strong>{{ product.name }}</strong></td>
                 <td>{{ product.description }}</td>
                 <td>{{ product.created_at }}</td>
                 <td>{{ product.price }}</td>
                 <td><b>Роман Хазов</b></td>
-                <td>В работе</td>
-                <td><router-link :to="`/products/${product.id}/edit`" class="btn btn-info">Изменить</router-link> <button @click="deleteProduct(product.id)" class="btn btn-danger">Удалить</button></td>
+                <td>{{ product.status }}</td>
+                <td v-if="this.getAdmin() == 1"><router-link :to="`/products/${product.id}/edit`" class="btn btn-info">Изменить</router-link> <button @click="deleteProduct(product.id)" class="btn btn-danger">Удалить</button></td>
             </tr>
             </tbody>
         </table>
@@ -52,6 +53,9 @@ export default {
                 this.products = this.products.filter(product => product.id !== id);
             }
         },
+        getAdmin(){
+           return (new URL(document.location)).searchParams.get("admin")
+        }
     },
 };
 </script>

@@ -4,13 +4,14 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Vue Laravel App</title>
+    <title>ЗАДАЧИ Другое измерение</title>
 
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 <body>
+<div class="container-fluid">
     <div id="app"></div>
-
+</div>
     <script type="module" src="{{ Vite::asset('resources/js/app.js') }}"></script>
 </body>
 </html>
