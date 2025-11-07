@@ -2,16 +2,25 @@
   <div>
     <h1>Create Product</h1>
     <form @submit.prevent="createProduct">
-      <label>Product Name:</label>
-      <input v-model="product.name" type="text" required />
+        <div class="form-group">
+            <label>Product Name:</label>
+            <input class="form-control" v-model="product.name" type="text" required />
+        </div>
+        <div class="form-group">
+            <label>Description:</label>
+            <textarea class="form-control" v-model="product.description"></textarea>
+        </div>
 
-      <label>Description:</label>
-      <textarea v-model="product.description"></textarea>
+            <div class="form-group">
+            <label>Price (₽):</label>
+            <input class="form-control" v-model="product.price" type="number" step="0.01" required />
+            </div>
 
-      <label>Price (₽):</label>
-      <input v-model="product.price" type="number" step="0.01" required />
-      <button type="submit" class="create-btn">Create</button>
-      <router-link to="/" class="cancel-btn">Cancel</router-link>
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary">Create</button>
+                <router-link to="/" class="btn btn-danger">Cancel</router-link>
+            </div>
+
     </form>
   </div>
 </template>
@@ -49,9 +58,6 @@ input, textarea {
   padding: 8px;
 }
 button {
-  margin-top: 10px;
-  padding: 8px 12px;
-  cursor: pointer;
 }
 .create-btn {
   background-color: green;
