@@ -6,10 +6,10 @@
         <input v-model="product.name" type="text" value="{{ product.name }}" class="form-control" required />
 
         <label class="form-label">Текст задачи:</label>
-        <textarea v-model="product.description" alue="{{product.description}}" class="form-control"></textarea>
+        <textarea v-model="product.description" value="{{product.description}}" class="form-control"></textarea>
 
-        <label class="form-label">Дней на выполнение:</label>
-        <input class="form-control" alue="{{product.price}}" v-model="product.price" type="number" step="0.01" required />
+        <label class="form-label">Часов на выполнение:</label>
+        <input class="form-control" value="{{product.price}}" v-model="product.price" type="number" step="0.01" required />
 
         <label class="form-label">Статус:</label>
           <select class="form-select"  name="" id="" v-model="product.status">

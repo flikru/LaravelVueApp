@@ -8,7 +8,7 @@
             <label class="form-label">Текст задачи:</label>
             <textarea v-model="product.description" class="form-control"></textarea>
 
-            <label class="form-label">Дней на выполнение:</label>
+            <label class="form-label">Часов на выполнение:</label>
             <input class="form-control" v-model="product.price" type="number" step="0.01" required />
 
             <label class="form-label">Статус:</label>
@@ -25,6 +25,7 @@
                 <option value="2" selected>Срочная</option>
             </select>
 
+            <br>
             <button type="submit" class="btn btn-success">Создать</button>
 
             <br>
@@ -62,27 +63,4 @@ export default {
 </script>
 
 <style scoped>
-form {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-input, textarea {
-  width: 100%;
-  padding: 8px;
-}
-button {
-}
-.create-btn {
-  background-color: green;
-  color: white;
-}
-.cancel-btn {
-  background-color: gray;
-  color: white;
-  text-decoration: none;
-  display: inline-block;
-  padding: 8px 12px;
-  text-align: center;
-}
 </style>

@@ -48,7 +48,7 @@ export default {
     },
     methods: {
         async deleteProduct(id) {
-            if (confirm('Are you sure you want to delete this product?')) {
+            if (confirm('Удалить задачу?')) {
                 await axios.delete(`/api/products/${id}`);
                 this.products = this.products.filter(product => product.id !== id);
             }
